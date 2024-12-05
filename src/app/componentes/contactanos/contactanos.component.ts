@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { SolicitudFormularioService } from '../../servicios/solicitud-formulario/solicitud-formulario.service';
+import { TecnicoProfesionalService } from '../../servicio/Tecnico_profesional/tecnico-profesional.service';
 
 @Component({
   selector: 'app-contactanos',
@@ -10,7 +11,8 @@ import { SolicitudFormularioService } from '../../servicios/solicitud-formulario
 export class ContactanosComponent {
   formularioForm;
   datos_formulario: any;
-  constructor(private formBuild: FormBuilder, private solicitudFormularioSrv:SolicitudFormularioService){
+  tecnicoprofesional: any;
+  constructor(private formBuild: FormBuilder, private solicitudFormularioSrv:SolicitudFormularioService, private tecnicoprofesionalSrv:TecnicoProfesionalService){
     this.formularioForm = this.formBuild.group({
       nombre: '',
       apellido: '',
@@ -20,13 +22,13 @@ export class ContactanosComponent {
     });
   }
   ngOnInit(){
-    
+    this.obtenerTecnicoProfesional();
   }
   obtenerTecnicoProfesional(){
-    this.solicitudFormularioSrv.obtenerTecnicoProfesional().subscribe(
+    this.tecnicoprofesionalSrv.obtenertecnicoprofesional().subscribe(
       (response:any) => {        
-        this.profesionales = response.profesionales;          
-        console.log(this.profesionales);
+        this.tecnicoprofesional = response.profesionales;          
+        console.log(this.tecnicoprofesional);
       }, error => {
         console.log(error);
       }
@@ -45,5 +47,6 @@ export class ContactanosComponent {
       }
     )   
   }
+
 
 }

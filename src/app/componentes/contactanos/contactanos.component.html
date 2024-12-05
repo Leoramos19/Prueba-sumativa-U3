@@ -51,39 +51,13 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="container letra">
-    <div class="row">
-        <div class="col-md-12" style="padding-bottom: 235px;">
-            <div class="pt-5 row">
-                <div class="col-md-4">
+            <div class="row">
+                <div *ngFor="let tecnico of tecnicoprofesional" class="col-md-4 pb-4">
                     <div class="card" style="width: 18rem;">
-                        <img src="assets/images.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="text-center">Instalación de Sistemas Operativos</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                        <img src="assets/fotolia_122074201_subscription_monthly_xxl-1622458354.webp" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="text-center">Instalación de Software de Oficina</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                        <img src="assets/1679955954488.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="text-center">reparación de computadoras</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <h5 class="text-center">Nombre: {{tecnico.nombre}} {{tecnico.apellido}} </h5>
+                            <p class="card-text">Correo: {{tecnico.correo}}</p>
+                            <p class="card-text">Telefono: {{tecnico.telefono}}</p>
                         </div>
                     </div>
                 </div>

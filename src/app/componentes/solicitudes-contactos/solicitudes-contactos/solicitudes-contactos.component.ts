@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { SolicitudFormularioService } from '../../../servicios/solicitud-formulario/solicitud-formulario.service';
-import { TecnicoProfesionalService } from '../../../servicio/Tecnico_profesional/tecnico-profesional.service';
 
 @Component({
   selector: 'app-solicitudes-contactos',
@@ -15,18 +14,17 @@ export class SolicitudesContactosComponent {
     mensaje:String
   }
 
-  constructor(private solicitudFormularioSrv:SolicitudFormularioService, private tecnicoprofesionalSrv:TecnicoProfesionalService){
+  constructor(private solicitudFormularioSrv:SolicitudFormularioService){
   }
 
-  ngOnInit(){ 
-    this.obtenerTecnicoProfesional
+  ngOnInit(){
   }
 
-  obtenerTecnicoProfesional(){
-    this.tecnicoprofesionalSrv.obtenertecnicoprofesional().subscribe(
+  obtenerSolicitudesFormulario(){
+    this.solicitudFormularioSrv.obtenerSolicitudesFormulario().subscribe(
       (response:any) => {        
-        this.tecnicoprofesionalSrv = response.profesionales;          
-        console.log(this.tecnicoprofesionalSrv);
+        this.solicitudes_formulario = response.solicitud_formulario;          
+        console.log(this.solicitudes_formulario);
       }, error => {
         console.log(error);
       }

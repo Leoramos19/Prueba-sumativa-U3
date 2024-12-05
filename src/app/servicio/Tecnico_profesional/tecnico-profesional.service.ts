@@ -10,6 +10,6 @@ export class TecnicoProfesionalService {
   constructor(private http: HttpClient) { }
 
   obtenertecnicoprofesional(){
-    return this.http.get(`${this.backend}/obtener-profesionales);
+    return this.http.get(`${this.backend}/obtener-profesionales`);
   }
 }
